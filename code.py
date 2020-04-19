@@ -17,7 +17,9 @@ th=th.reshape(1,ro+1)
 b=b.reshape(co,1)
 aw=np.empty(co, dtype=float)
 for i in range (0,co):
-    h=th[0][0]*a[i][0]+th[0][1]*a[i][1]+th[0][2]*a[i][2]+th[0][3]*a[i][3]+th[0][4]*a[i][4]  
+    h=0
+    for j in range (0,ro):
+       h=th[0][j]*a[i][j]
     aw[i]=h
 aw=aw.reshape(co,1)
 np.savetxt("predicted_test_Y.csv", aw, delimiter=",")
